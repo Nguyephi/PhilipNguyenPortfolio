@@ -25,7 +25,6 @@ export default function Navbar(props) {
       <AppBar>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>Philip Nguyen</Typography>
-          <MenuItem>
           <IconButton aria-label="resume" color="inherit">
               <Badge color="secondary">
                 <DescriptionIcon />
@@ -46,7 +45,6 @@ export default function Navbar(props) {
                 <LinkedInIcon />
               </Badge>
             </IconButton>
-          </MenuItem>
         </Toolbar>
       </AppBar>
 
