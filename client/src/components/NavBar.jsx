@@ -20,6 +20,16 @@ const useStyles = makeStyles((theme) => ({
 export default function Navbar(props) {
   const classes = useStyles();
 
+  const handleGithub = (e) => {
+    e.preventDefault()
+    window.open('https://github.com/Nguyephi', '_blank')
+  };
+
+  const handleLinkedin = (e) => {
+    e.preventDefault()
+    window.open('https://www.linkedin.com/in/nguyephi/', '_blank')
+  };
+
   return (
     <React.Fragment>
       <AppBar>
@@ -35,12 +45,12 @@ export default function Navbar(props) {
                 <MailIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="github" color="inherit">
+            <IconButton onClick={(e) => handleGithub(e)} aria-label="github" color="inherit">
               <Badge color="secondary">
                 <GitHubIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="linkedin" color="inherit">
+            <IconButton onClick={(e) => handleLinkedin(e)} aria-label="linkedin" color="inherit">
               <Badge color="secondary">
                 <LinkedInIcon />
               </Badge>
