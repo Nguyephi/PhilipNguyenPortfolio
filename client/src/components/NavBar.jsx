@@ -29,6 +29,11 @@ export default function Navbar(props) {
     setOpen(false);
   };
 
+  const handleResume = (e) => {
+    e.preventDefault()
+    window.open('https://docs.google.com/document/d/1qEdbKS61fG_OtjtHqElVrT-X3hzc37UkKBveqJE8-o8/edit?usp=sharing', '_blank')
+  };
+
   const handleGithub = (e) => {
     e.preventDefault()
     window.open('https://github.com/Nguyephi', '_blank')
@@ -44,7 +49,7 @@ export default function Navbar(props) {
       <AppBar>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>Philip Nguyen</Typography>
-          <IconButton aria-label="resume" color="inherit">
+          <IconButton onClick={(e) => handleResume(e)} aria-label="resume" color="inherit">
             <Badge color="secondary">
               <DescriptionIcon />
             </Badge>
