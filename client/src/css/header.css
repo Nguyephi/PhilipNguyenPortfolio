@@ -1,0 +1,21 @@
+h1 {
+  display: inline-block;
+  color: white;
+}
+
+.Typist .Cursor {
+  display: inline-block; }
+  .Typist .Cursor--blinking {
+    color: white;
+    margin-left: 2px;
+    opacity: 1;
+    font-size: 2em;
+    animation: blink 1s linear infinite; }
+
+@keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
