@@ -1,5 +1,5 @@
-import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
@@ -8,6 +8,9 @@ import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
+import TextField from '@material-ui/core/TextField';
+
+import '../css/contactMeForm.css';
 
 const styles = (theme) => ({
   root: {
@@ -36,12 +39,6 @@ const DialogTitle = withStyles(styles)((props) => {
   );
 });
 
-const DialogContent = withStyles((theme) => ({
-  root: {
-    padding: theme.spacing(2),
-  },
-}))(MuiDialogContent);
-
 const DialogActions = withStyles((theme) => ({
   root: {
     margin: 0,
@@ -50,30 +47,50 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function ContactMeForm(props) {
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [message, setMessage] = useState();
+
+  const handleEmail = () => {
+    console.log(name, email, message)
+    // make api route to send email
+    props.handleClose()
+  }
+
   return (
     <div>
-      <Dialog onClose={props.handleClose} aria-labelledby="customized-dialog-title" open={props.open}>
-        <DialogTitle id="customized-dialog-title" onClose={props.handleClose}>
-          Modal title
+      <Dialog onClose={props.handleClose} aria-labelledby="contact-me-title" open={props.open}>
+        <DialogTitle id="contact-me-title" onClose={props.handleClose}>
+          Contact me
         </DialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis
-            in, egestas eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis
-            lacus vel augue laoreet rutrum faucibus dolor auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel
-            scelerisque nisl consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus
-            auctor fringilla.
-          </Typography>
-        </DialogContent>
+        <TextField
+          required
+          id="name"
+          label="Name"
+          variant="outlined"
+          onChange={(e) => { setName(e.target.value) }}
+          className='textFieldMargin'
+        />
+        <TextField
+          required
+          id="email"
+          label="Email"
+          variant="outlined"
+          onChange={(e) => { setEmail(e.target.value) }}
+          className='textFieldMargin'
+        />
+        <TextField
+          required
+          id="message"
+          label="Message"
+          multiline
+          rows={4}
+          variant="outlined"
+          onChange={(e) => { setMessage(e.target.value) }}
+        />
         <DialogActions>
-          <Button autoFocus onClick={props.handleClose} color="primary">
-            Save changes
+          <Button autoFocus onClick={() => handleEmail()} color="primary">
+            Email me
           </Button>
         </DialogActions>
       </Dialog>
