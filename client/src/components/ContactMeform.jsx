@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
+import FormControl from '@material-ui/core/FormControl';
+import InputLabel from '@material-ui/core/InputLabel';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
 import MuiDialogTitle from '@material-ui/core/DialogTitle';
 import MuiDialogContent from '@material-ui/core/DialogContent';
 import MuiDialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
+// import TextField from '@material-ui/core/TextField';
 
 import '../css/contactMeForm.css';
 
@@ -47,13 +50,24 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function ContactMeForm(props) {
-  const [name, setName] = useState();
-  const [email, setEmail] = useState();
-  const [message, setMessage] = useState();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
 
-  const handleEmail = () => {
+  const handleEmail = (e) => {
+    e.preventDefault();
     console.log(name, email, message)
     // make api route to send email
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, message })
+    }
+    fetch('/api/sendemail', requestOptions)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+      })
     props.handleClose()
   }
 
@@ -63,36 +77,44 @@ export default function ContactMeForm(props) {
         <DialogTitle id="contact-me-title" onClose={props.handleClose}>
           Contact me
         </DialogTitle>
-        <TextField
-          required
-          id="name"
-          label="Name"
-          variant="outlined"
-          onChange={(e) => { setName(e.target.value) }}
-          className='textFieldMargin'
-        />
-        <TextField
-          required
-          id="email"
-          label="Email"
-          variant="outlined"
-          onChange={(e) => { setEmail(e.target.value) }}
-          className='textFieldMargin'
-        />
-        <TextField
-          required
-          id="message"
-          label="Message"
-          multiline
-          rows={4}
-          variant="outlined"
-          onChange={(e) => { setMessage(e.target.value) }}
-        />
-        <DialogActions>
-          <Button autoFocus onClick={() => handleEmail()} color="primary">
-            Email me
+        <form onSubmit={(e) => handleEmail(e)}>
+          <FormControl variant="outlined" className='w-100'>
+            <InputLabel htmlFor="name-input">Name</InputLabel>
+            <OutlinedInput
+              required
+              id="name-input"
+              value={name}
+              onChange={(e) => { setName(e.target.value) }}
+              className='textFieldMargin'
+              label="Name" />
+          </FormControl>
+          <FormControl variant="outlined" className='w-100'>
+            <InputLabel htmlFor="email-input">Email</InputLabel>
+            <OutlinedInput
+              required
+              id="email-input"
+              value={email}
+              onChange={(e) => { setEmail(e.target.value) }}
+              className='textFieldMargin'
+              label="Email" />
+          </FormControl>
+          <FormControl variant="outlined" className='w-100'>
+            <InputLabel htmlFor="message-input">Message</InputLabel>
+            <OutlinedInput
+              required
+              id="message-input"
+              value={message}
+              onChange={(e) => { setMessage(e.target.value) }}
+              multiline
+              rows={4}
+              label="Message" />
+          </FormControl>
+          <DialogActions>
+            <Button autoFocus type='submit' color="primary">
+              Email me
           </Button>
-        </DialogActions>
+          </DialogActions>
+        </form>
       </Dialog>
     </div>
   );
