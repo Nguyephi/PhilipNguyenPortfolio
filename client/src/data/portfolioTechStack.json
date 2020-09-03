@@ -1,0 +1,9 @@
+{
+    "techStack": [
+        "MongoDb",
+        "Express",
+        "React",
+        "NodeJs",
+        "Material-UI"
+    ]
+}

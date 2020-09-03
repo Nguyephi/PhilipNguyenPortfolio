@@ -1,0 +1,52 @@
+{
+    "repos": [
+        {
+            "repo_title": "Experience It",
+            "job_title": "Back-End Developer",
+            "repo_subtitle": "Inherited legacy code of an application that allowed users to post about their travel experiences",
+            "repo_techStack": "JS, Node.js, Express, PostgreSQL, EC2, New Relic",
+            "bullet_point": [
+                "Wrote Apis using Express and PostgreSQL for reviews service DB and scaled to 100 million records",
+                "Deployed DB and review service to AWS EC2 with SSH and setup via Linux CLI",
+                "Improved performance of queries to under 50ms average with testing on New Relic"
+            ],
+            "repo_link": "https://github.com/Nguyephi/Reviews-Service"
+        },
+        {
+            "repo_title": "Game Streamer",
+            "job_title": "Full-Stack Software Engineer",
+            "repo_subtitle": "Dynamically rendered gamer’s video with chat, recommended videos and related channels",
+            "repo_techStack": "JS, React, Node.js, Express, MySQL, Webpack, Babel, EC2",
+            "bullet_point": [
+                "Architected app and deployed video player service AWS/EC2, photos and videos stored on AWS S3",
+                "Collaborated in a team of 4, consolidated work on the modules using agile methodologies and Trello",
+                "Wrote code reviews for team members’ pull requests and received reviews for my own"
+            ],
+            "repo_link": "https://github.com/Nguyephi/video-player-service"
+        },
+        {
+            "repo_title": "Tri N Garden",
+            "job_title": "Full-Stack Software Engineer",
+            "repo_subtitle": "A simple garden tracker application that uses a 2d matrix data structure as a virtual garden",
+            "repo_techStack": "JS, React, Node.js, Express, Mongo, Webpack, Babel, Heroku",
+            "bullet_point": [
+                "Built a minimum viable product, with CRUD operations in RESTful API",
+                "Deployed on Heroku using MongoDB",
+                "Made query improvements and tested using New Relic, reduced time from 200ms to 50ms"
+            ],
+            "repo_link": "https://github.com/Nguyephi/Tri-N-Garden"
+        },
+        {
+            "repo_title": "Cook this",
+            "job_title": "Full-Stack Software Engineer",
+            "repo_subtitle": "Share posts of food creations with photos and recipes",
+            "repo_techStack": "JS, React, Python, Flask, SQLAlchemy, PostgreSQL, Heroku, Netlify",
+            "bullet_point": [
+                "Created custom sign in and FB oAuth, with error handling",
+                "Architected APIs to dynamically render users post, with like and comment feature",
+                "Deployed server-side on Heroku with PostgreSQL and client-side on Netlify"
+            ],
+            "repo_link": "https://github.com/Nguyephi/Cook-this-app"
+        }
+    ]
+}
