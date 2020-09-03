@@ -9,7 +9,7 @@ module.exports = {
   },
   devServer: {
     contentBase: path.resolve(__dirname, "client/public"),
-    hot:true,
+    hot: true,
     compress: true,
     watchContentBase: true,
     port: 1110
@@ -28,25 +28,6 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: 1,
-              modules: {
-                mode: 'local',
-                localIdentName: '[local]-[hash:base64:7]',
-                context: path.resolve(__dirname, 'src'),
-                hashPrefix: 'my-custom-hash',
-              }
-            }
-          }
-        ],
-        include: /\.module\.css$/
-      },
-      {
-      test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'

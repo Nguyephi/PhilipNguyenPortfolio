@@ -5,7 +5,6 @@ const mailjet = require('node-mailjet')
     .connect('437b0575f7a8c2c5357aba7deb08e22b', 'dad3a8d10343f38fb9cf558de8f82665');
 const app = express();
 
-
 app.use(express.static('./client/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -15,7 +14,6 @@ app.post('/api/sendemail', (req, res) => {
         if (err) {
             res.status(400).send(err)
         }
-        console.log()
         const request = mailjet
             .post("send", { 'version': 'v3.1' })
             .request({
