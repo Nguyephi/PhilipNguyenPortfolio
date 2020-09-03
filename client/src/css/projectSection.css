@@ -1,0 +1,43 @@
+#project-title {
+    color: black;
+    padding: 10px 0;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+.MuiTypography-subtitle1 {
+    line-height: 1 !important;
+    margin-bottom: .5em !important;
+}
+
+#project-root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#project-root #project-title {
+    margin: 20px 0;
+}
+
+.black {
+    color: black !important;
+}
+
+.divider-style {
+    font-size: large;
+    display: inline;
+    font: small-caption;
+}
+
+.MuiLink-underlineHover {
+    margin-left: auto !important;
+}
+
+.MuiLink-underlineHover:hover  {
+    
+    text-decoration: none !important;
+}

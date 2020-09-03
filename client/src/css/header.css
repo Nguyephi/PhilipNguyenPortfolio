@@ -1,16 +1,43 @@
-h1 {
-  display: inline-block;
+.white {
   color: white;
 }
 
-.Typist .Cursor {
-  display: inline-block; }
-  .Typist .Cursor--blinking {
-    color: white;
-    margin-left: 2px;
-    opacity: 1;
-    font-size: 2em;
-    animation: blink 1s linear infinite; }
+h1 {
+  display: inline-block
+}
+
+#header-root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4em;
+  padding-bottom: 3em;
+  background-color: #1B263B;
+  background-size: cover;
+  width: 100%;
+  min-height: 600px;
+}
+
+#header-container {
+  width: 475px;
+}
+
+#header-title {
+  display: inline-block;
+  width: 460px;
+  margin: auto;
+}
+
+#header-title .Typist .Cursor {
+  display: inline-block;
+}
+
+#header-title .Typist .Cursor--blinking {
+  color: white;
+  opacity: 1;
+  font-size: 3em;
+  animation: blink 1s linear infinite;
+}
 
 @keyframes blink {
   0% {
