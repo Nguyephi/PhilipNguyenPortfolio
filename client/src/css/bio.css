@@ -1,0 +1,32 @@
+#bio {
+    width: 550px;
+    line-height: 1.25 !important;
+}
+
+#bio .Typist .Cursor {
+    display: inline-block;
+}
+
+#bio .Typist .Cursor--blinking {
+    color: white;
+    opacity: 1;
+    font-size: 1em;
+    animation: blink 1s linear infinite;
+}
+
+#bio-root {
+    margin-top: 25px;
+}
+
+#bio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+#bio-avatar {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
