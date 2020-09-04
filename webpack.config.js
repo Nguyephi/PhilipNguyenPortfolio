@@ -34,7 +34,7 @@ module.exports = {
           'style-loader',
           'css-loader'
         ],
-        exclude: /\.module\.css$/
+        exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
@@ -43,6 +43,7 @@ module.exports = {
             loader: 'file-loader',
           },
         ],
+        exclude: /node_modules/
       },
     ],
   },
