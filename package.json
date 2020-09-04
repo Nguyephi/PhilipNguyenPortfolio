@@ -1,7 +1,9 @@
 {
   "name": "Phils_Portfolio",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": "10.16.1"
+  },
   "main": "webpack.config.js",
   "scripts": {
     "server_dev": "nodemon server",
