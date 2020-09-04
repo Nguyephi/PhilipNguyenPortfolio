@@ -1,0 +1,1 @@
+{"ast":null,"code":"var __jsx = React.createElement;\nimport React from 'react';\nimport ReactDOM from 'react-dom';\nimport App from '../client/src/components/App.jsx';\nimport '../client/src/css/index.css';\nReactDOM.render(__jsx(App, null), document.getElementById('root'));","map":null,"metadata":{},"sourceType":"module"}

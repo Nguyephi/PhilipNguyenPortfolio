@@ -36,12 +36,13 @@ app.post('/api/sendemail', (req, res) => {
             })
         request
             .then((result) => {
-                console.log(result.body)
+                res.status(200).json({
+                    status: result.body.Messages[0].Status
+                })
             })
             .catch((err) => {
                 console.log(err.statusCode)
             })
-        res.status(200).send(result)
     })
 })
 

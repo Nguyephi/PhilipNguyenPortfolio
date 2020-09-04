@@ -2,7 +2,14 @@ var mongoose = require('mongoose');
 const Schema = require('./schema.js');
 require('dotenv').config();
 
-const MONGODB_URI = process.env.MONGODB_URI ? process.env.MONGODB_URI : `mongodb://${process.env.MG_HOST}/${process.env.MG_COLLECTION}`
+let MONGODB_URI = ''
+
+if (process.NODE_ENV === 'production') {
+    MONGODB_URI = process.env.MONGDOB_CLOUD
+} else {
+    MONGODB_URI = process.env.MONGDOB_LOCAL
+}
+
 mongoose.connect(`${MONGODB_URI}`, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 
 const db = mongoose.connection;
