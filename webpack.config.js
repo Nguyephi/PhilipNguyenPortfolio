@@ -1,13 +1,21 @@
 const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 require('dotenv').config();
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './client/src/index.jsx',
+  // entry: './client/src/index.jsx',
+  // output: {
+  //   path: path.resolve(__dirname, 'client/public'),
+  //   filename: 'app.js',
+  // },
+  entry: './server/index.js',
+  target: 'node',
+  externals: [nodeExternals()],
   output: {
     path: path.resolve(__dirname, 'client/public'),
-    filename: 'app.js',
+    filename: 'app.js'
   },
   devServer: {
     contentBase: path.resolve(__dirname, "client/public"),
@@ -19,7 +27,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -31,9 +39,21 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
-          'css-loader'
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: {
+                mode: 'local',
+                localIdentName: '[local]-[hash:base64:7]',
+                context: path.resolve(__dirname, 'src'),
+                hashPrefix: 'my-custom-hash',
+              }
+            }
+          }
         ],
+        include: /\.module\.css$/,
         exclude: /node_modules/
       },
       {
@@ -47,6 +67,9 @@ module.exports = {
       },
     ],
   },
+  plugins: [new MiniCssExtractPlugin({
+    filename: 'main.css'
+  })],
   performance: {
     hints: false,
     maxEntrypointSize: 512000,

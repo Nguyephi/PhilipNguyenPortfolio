@@ -1,0 +1,146 @@
+#contactMeTitle--_5emJx {
+    padding-left: 0;
+}
+
+.MuiDialog-paperWidthSm-1NumKcx {
+    width: 33em;
+    padding: 10px 20px;
+}
+
+.textFieldMargin-11mR3Bk {
+    margin-bottom: 10px !important;
+}
+
+.width100-2I5FNO6 {
+    width: 100% !important;
+}
+#bio-1Si3w4A {
+    width: 550px;
+    line-height: 1.25 !important;
+}
+
+#bio-1Si3w4A .Typist-Qbjh_8i .Cursor-YYaKPNZ {
+    display: inline-block;
+}
+
+#bio-1Si3w4A .Typist-Qbjh_8i .Cursor--blinking-1NghGyC {
+    color: white;
+    opacity: 1;
+    font-size: 1em;
+    animation: blink-3BaAuMz 1s linear infinite;
+}
+
+#bioRoot-3f3LalA {
+    margin-top: 25px;
+}
+
+#bioContainer-1FH-0U0 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#bioAvatar-nt3xg4X {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.white-3mlii6m {
+    color: white;
+}
+
+.white-28U-XUJ {
+  color: white;
+}
+
+h1 {
+  display: inline-block
+}
+
+#headerRoot-qjxkYWk {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 4em;
+  padding-bottom: 3em;
+  background-color: #1B263B;
+  background-size: cover;
+  width: 100%;
+  min-height: 600px;
+}
+
+#headerContainer-3T2j2Wo {
+  width: 475px;
+}
+
+#headerTitle-1w3Rq6- {
+  display: inline-block;
+  width: 460px;
+  margin: auto;
+}
+
+#header-title-1KXKJ7v .Typist-JD-o1zS .Cursor-1CahCVd {
+  display: inline-block;
+}
+
+#headerTitle-1w3Rq6- .Typist-JD-o1zS .Cursor--blinking-2uva3Ef {
+  color: white;
+  opacity: 1;
+  font-size: 3em;
+  animation: blink-1fryPu8 1s linear infinite;
+}
+
+@keyframes blink-1fryPu8 {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+#projectTitle-17Gso5K {
+    color: black;
+    padding: 10px 0;
+}
+
+h2 {
+    text-decoration: underline;
+}
+
+.MuiTypography-subtitle1-Me_kzeB {
+    line-height: 1 !important;
+    margin-bottom: .5em !important;
+}
+
+#projectRoot-2w9ntiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#projectRoot-2w9ntiz #projectTitle-17Gso5K {
+    margin: 20px 0;
+}
+
+.black-cczvABB {
+    color: black !important;
+}
+
+.dividerStyle-3VtpRVG {
+    font-size: large;
+    display: inline;
+    font: small-caption;
+}
+
+.MuiLink-underlineHover-25Cutih {
+    margin-left: auto !important;
+}
+
+.MuiLink-underlineHover-25Cutih:hover  {
+    text-decoration: none !important;
+}
+* {
+    padding: 0;
+    margin: 0;
+}

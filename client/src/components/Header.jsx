@@ -4,7 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import Bio from './Bio.jsx'
-import '../css/header.css';
+import styles from '../css/header.module.css';
 import headerImage from '../img/Philip_Nguyen_Portfolio_Header.png';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,9 +19,9 @@ export default function Header() {
   const classes = useStyles();
 
   return (
-    <div id='header-root' style={{ backgroundImage: `url(${headerImage})` }}>
-      <div id='header-container'>
-        <div id='header-title'>
+    <div id={styles.headerRoot} style={{ backgroundImage: `url(${headerImage})` }}>
+      <div id={styles.headerContainer}>
+        <div id={styles.headerTitle}>
           <Typist avgTypingSpeed={70} startDelay={1000} cursor={{ hideWhenDone: true }} onTypingDone={() => { setShow(true) }}>
             <Typography className={classes.title} variant="h3" component="h1">
               Software Engineer

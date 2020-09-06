@@ -7,7 +7,7 @@ import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
 
 import Projects from '../data/projectData.json'
-import '../css/projectSection.css'
+import styles from '../css/projectSection.module.css'
 
 const useStyles = makeStyles({
     root: {
@@ -65,8 +65,8 @@ export default function ProjectSection() {
     }
 
     return (
-        <div id='project-root'>
-            <Typography id='project-title' variant="h3" component="h1">
+        <div id={styles.projectRoot}>
+            <Typography id={styles.projectTitle} variant="h3" component="h1">
                 Featured Applications
             </Typography>
             <RenderProjects />

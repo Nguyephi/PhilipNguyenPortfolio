@@ -11,9 +11,9 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 
-import '../css/contactMeForm.css';
+import styles from '../css/contactMeForm.module.css';
 
-const styles = (theme) => ({
+const styled = (theme) => ({
   root: {
     margin: 0,
     padding: theme.spacing(2),
@@ -26,7 +26,7 @@ const styles = (theme) => ({
   },
 });
 
-const DialogTitle = withStyles(styles)((props) => {
+const DialogTitle = withStyles(styled)((props) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
@@ -71,41 +71,41 @@ export default function ContactMeForm({ open, handleClose }) {
   return (
     <div>
       <Dialog onClose={handleClose} aria-labelledby="contact-me-title" open={open}>
-        <DialogTitle id="contact-me-title" onClose={handleClose}>
+        <DialogTitle id={styles.contactMeTitle} onClose={handleClose}>
           Contact me
         </DialogTitle>
         <form onSubmit={(e) => handleEmail(e)}>
-          <FormControl variant="outlined" className='w-100'>
+          <FormControl variant="outlined" className={styles.width100}>
             <InputLabel htmlFor="name-input">Name</InputLabel>
             <OutlinedInput
               required
               id="name-input"
               value={name}
               onChange={(e) => { setName(e.target.value) }}
-              className='textFieldMargin'
+              className={styles.textFieldMargin}
               label="Name" />
           </FormControl>
-          <FormControl variant="outlined" className='w-100'>
+          <FormControl variant="outlined" className={styles.w - 100}>
             <InputLabel htmlFor="email-input">Email</InputLabel>
             <OutlinedInput
               required
               id="email-input"
               value={email}
               onChange={(e) => { setEmail(e.target.value) }}
-              className='textFieldMargin'
+              className={styles.textFieldMargin}
               label="Email" />
           </FormControl>
-          <FormControl variant="outlined" className='w-100'>
+          <FormControl variant="outlined" className={styles.w - 100}>
             <InputLabel htmlFor="title-input">Title</InputLabel>
             <OutlinedInput
               required
               id="title-input"
               value={title}
               onChange={(e) => { setTitle(e.target.value) }}
-              className='textFieldMargin'
+              className={styles.textFieldMargin}
               label="Title" />
           </FormControl>
-          <FormControl variant="outlined" className='w-100'>
+          <FormControl variant="outlined" className={styles.w - 100}>
             <InputLabel htmlFor="message-input">Message</InputLabel>
             <OutlinedInput
               required

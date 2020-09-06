@@ -14,19 +14,22 @@
     animation: blink 1s linear infinite;
 }
 
-#bio-root {
+#bioRoot {
     margin-top: 25px;
 }
 
-#bio-container {
+#bioContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-
-#bio-avatar {
+#bioAvatar {
     border-radius: 50%;
     width: 200px;
     height: 200px;
+}
+
+.white {
+    color: white;
 }

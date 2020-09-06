@@ -1,13 +1,59 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const Models = require('./models/');
-const mailjet = require('node-mailjet')
-    .connect('437b0575f7a8c2c5357aba7deb08e22b', 'dad3a8d10343f38fb9cf558de8f82665');
+import express from 'express';
+import path from 'path';
+import fs from 'fs';
+import bodyParser from 'body-parser';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import App from '../client/src/components/App.jsx';
+import { ServerStyleSheets, ThemeProvider } from '@material-ui/core/styles';
+import theme from '../client/src/utils/theme.js'
+import Models from './models/';
+import mailjet from 'node-mailjet';
+
+mailjet.connect('437b0575f7a8c2c5357aba7deb08e22b', 'dad3a8d10343f38fb9cf558de8f82665');
 const app = express();
 
-app.use(express.static('./client/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+app.get('/', (req, res) => {
+    const sheets = new ServerStyleSheets();
+    const app = ReactDOMServer.renderToString(sheets.collect(
+        <ThemeProvider theme={theme}>
+            <App />
+        </ThemeProvider>
+    ));
+
+    const indexFile = path.resolve('./client/public/index.html');
+    const css = sheets.toString();
+    fs.readFile(indexFile, 'utf8', (err, data) => {
+        if (err) {
+            console.error('Something went wrong:', err);
+            return res.status(500).send('Oops, better luck next time!');
+        }
+
+        return res.send(`<!DOCTYPE html>
+        <html lang="en">
+        
+        <head>
+          <link href="https://fonts.googleapis.com/css?family=Muli&display=swap" rel="stylesheet">
+          <link rel="stylesheet" type="text/css" href="./main.css" />
+          <style id="jss-server-side">${css}</style>
+          <title>Philip Nguyen Web Portfolio</title>
+          <meta charset="UTF-8">
+        </head>
+        
+        <body>
+          <div id="root">${app}</div>
+          <script src="./app.js"></script>
+        </body>
+        
+        </html>`
+        )
+    });
+});
+
+app.use(express.static('./client/public'));
 
 app.post('/api/sendemail', (req, res) => {
     Models.sendEmail(req.body, (err, result) => {
@@ -46,4 +92,4 @@ app.post('/api/sendemail', (req, res) => {
     })
 })
 
-module.exports = app;
+export default app;

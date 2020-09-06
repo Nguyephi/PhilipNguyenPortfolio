@@ -1,4 +1,4 @@
-#project-title {
+#projectTitle {
     color: black;
     padding: 10px 0;
 }
@@ -12,14 +12,14 @@ h2 {
     margin-bottom: .5em !important;
 }
 
-#project-root {
+#projectRoot {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 20px 0;
 }
 
-#project-root #project-title {
+#projectRoot #projectTitle {
     margin: 20px 0;
 }
 
@@ -27,7 +27,7 @@ h2 {
     color: black !important;
 }
 
-.divider-style {
+.dividerStyle {
     font-size: large;
     display: inline;
     font: small-caption;
@@ -38,6 +38,5 @@ h2 {
 }
 
 .MuiLink-underlineHover:hover  {
-    
     text-decoration: none !important;
 }
