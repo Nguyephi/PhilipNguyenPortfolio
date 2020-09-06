@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const Models = require('./models/');
 const mailjet = require('node-mailjet')
-    .connect('437b0575f7a8c2c5357aba7deb08e22b', 'dad3a8d10343f38fb9cf558de8f82665');
+    .connect(process.env MJ_API, process.env.MJ_SECRET_KEY);
 const app = express();
 
 app.use(express.static('./client/public'));
