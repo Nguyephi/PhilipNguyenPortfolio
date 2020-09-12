@@ -9,7 +9,7 @@
     "server_dev": "nodemon server",
     "build_dev": "webpack --watch --mode development",
     "build": "webpack --mode production",
-    "start": "node server"
+    "start": "NODE_ENV=production node server"
   },
   "keywords": [],
   "author": "",
