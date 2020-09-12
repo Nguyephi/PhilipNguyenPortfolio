@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const Models = require('./models/');
 const mailjet = require('node-mailjet')
     .connect(process.env.MJ_API, process.env.MJ_SECRET_KEY);
@@ -8,6 +9,7 @@ const app = express();
 app.use(express.static('./client/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(cors())
 
 app.post('/api/sendemail', (req, res) => {
     Models.sendEmail(req.body, (err, result) => {
