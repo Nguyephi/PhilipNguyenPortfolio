@@ -4,10 +4,10 @@ require('dotenv').config();
 
 let MONGODB_URI = ''
 
-if (process.NODE_ENV === 'production') {
-    MONGODB_URI = process.env.MONGDOB_CLOUD
+if (process.env.NODE_ENV === 'production') {
+    MONGODB_URI = process.env.MONGODB_CLOUD
 } else {
-    MONGODB_URI = process.env.MONGDOB_LOCAL
+    MONGODB_URI = process.env.MONGODB_LOCAL
 }
 
 mongoose.connect(`${MONGODB_URI}`, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
