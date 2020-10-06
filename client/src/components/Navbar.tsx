@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Badge from '@material-ui/core/Badge';
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -13,7 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
 import ContactMeForm from './ContactMeForm.jsx';
-import TechStack from './TechStack.jsx'
+import { TechStack } from './TechStack';
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -21,40 +21,25 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-export default function Navbar(props) {
-  const [open, setOpen] = useState(false);
-  const [openSnack, setOpenSnack] = useState(false)
+export const Navbar: FunctionComponent = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  const [openSnack, setOpenSnack] = useState<boolean>(false)
   const classes = useStyles();
 
-  const handleClickOpen = () => {
+  const handleFormOpen: () => void = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleFormClose: () => void = () => {
     setOpen(false);
   };
 
-  const handleSnackClick = () => {
+  const handleSnackClick: () => void = () => {
     setOpenSnack(true);
   };
 
-  const handleSnackClose = (e) => {
+  const closeSnack: () => void = () => {
     setOpenSnack(false);
-  };
-
-  const handleResume = (e) => {
-    e.preventDefault()
-    window.open('https://docs.google.com/document/d/1qEdbKS61fG_OtjtHqElVrT-X3hzc37UkKBveqJE8-o8/edit?usp=sharing', '_blank', 'noopener')
-  };
-
-  const handleGithub = (e) => {
-    e.preventDefault()
-    window.open('https://github.com/Nguyephi', '_blank', 'noopener')
-  };
-
-  const handleLinkedin = (e) => {
-    e.preventDefault()
-    window.open('https://www.linkedin.com/in/nguyephi/', '_blank', 'noopener')
   };
 
   return (
@@ -62,28 +47,28 @@ export default function Navbar(props) {
       <AppBar>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>Philip Nguyen</Typography>
-          <IconButton onClick={(e) => handleResume(e)} aria-label="resume" color="inherit">
+          <IconButton aria-label="resume" color="inherit" href="https://docs.google.com/document/d/1qEdbKS61fG_OtjtHqElVrT-X3hzc37UkKBveqJE8-o8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
             <Tooltip title="Resume" arrow>
               <Badge color="secondary">
                 <DescriptionIcon />
               </Badge>
             </Tooltip>
           </IconButton>
-          <IconButton onClick={handleClickOpen} aria-label="contact me" color="inherit">
+          <IconButton onClick={handleFormOpen} aria-label="contact me" color="inherit">
             <Tooltip title="Contact Me" arrow>
               <Badge color="secondary">
                 <MailIcon />
               </Badge>
             </Tooltip>
           </IconButton>
-          <IconButton onClick={(e) => handleGithub(e)} aria-label="github" color="inherit">
+          <IconButton aria-label="github" color="inherit" href="https://github.com/Nguyephi" target="_blank" rel="noopener noreferrer">
             <Tooltip title="Github" arrow>
               <Badge color="secondary">
                 <GitHubIcon />
               </Badge>
             </Tooltip>
           </IconButton>
-          <IconButton onClick={(e) => handleLinkedin(e)} aria-label="linkedin" color="inherit">
+          <IconButton aria-label="linkedin" color="inherit" href="https://www.linkedin.com/in/nguyephi/" target="_blank" rel="noopener noreferrer">
             <Tooltip title="LinkedIn" arrow>
               <Badge color="secondary">
                 <LinkedInIcon />
@@ -99,8 +84,8 @@ export default function Navbar(props) {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <TechStack openSnack={openSnack} handleSnackClose={handleSnackClose} />
-      <ContactMeForm open={open} handleClose={handleClose} />
+      <TechStack openSnack={openSnack} closeSnack={closeSnack} />
+      <ContactMeForm open={open} handleClose={handleFormClose} />
       <Toolbar id="back-to-top-anchor" />
     </React.Fragment>
   );

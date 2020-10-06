@@ -11,10 +11,6 @@ module.exports = {
     filename: 'app.js',
     path: path.resolve(__dirname, 'client/public'),
   },
-  // output: {
-  //   path: path.resolve(__dirname, 'client/public'),
-  //   filename: 'app.js',
-  // },
   devServer: {
     contentBase: path.resolve(__dirname, "client/public"),
     hot: true,

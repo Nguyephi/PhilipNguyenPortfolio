@@ -1,10 +1,11 @@
 {
     "techStack": [
-        "MongoDb",
-        "Express",
         "React",
-        "NodeJs",
+        "TypeScript",
         "Material-UI",
+        "NodeJs",
+        "Express",
+        "MongoDb",
         "Heroku",
         "Mailjet"
     ]
