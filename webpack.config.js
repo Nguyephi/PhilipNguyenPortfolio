@@ -1,14 +1,20 @@
 const path = require('path');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 require('dotenv').config();
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './client/src/index.jsx',
-  output: {
-    path: path.resolve(__dirname, 'client/public'),
-    filename: 'app.js',
+  entry: './client/src/index.tsx',
+  resolve: {
+    extensions: ['.tsx', '.ts', '.js'],
   },
+  output: {
+    filename: 'app.js',
+    path: path.resolve(__dirname, 'client/public'),
+  },
+  // output: {
+  //   path: path.resolve(__dirname, 'client/public'),
+  //   filename: 'app.js',
+  // },
   devServer: {
     contentBase: path.resolve(__dirname, "client/public"),
     hot: true,
@@ -18,6 +24,13 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: {
+          loader: 'ts-loader',
+        },
+        exclude: /node_modules/,
+      },
       {
         test: /\.jsx$/,
         exclude: /node_modules/,
