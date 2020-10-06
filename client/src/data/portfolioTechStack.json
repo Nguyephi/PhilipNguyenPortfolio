@@ -4,6 +4,8 @@
         "Express",
         "React",
         "NodeJs",
-        "Material-UI"
+        "Material-UI",
+        "Heroku",
+        "Mailjet"
     ]
 }
