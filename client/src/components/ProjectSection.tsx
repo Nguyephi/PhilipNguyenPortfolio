@@ -56,7 +56,7 @@ export const ProjectSection: FunctionComponent = () => {
                         })}
                     </CardContent>
                     <CardActions>
-                        <Button size="large" href={repo_link} target="_blank" rel="noopener noreferrer">
+                        <Button fullWidth size="large" href={repo_link} target="_blank" rel="noopener noreferrer">
                             REPO
                         </Button>
                     </CardActions>

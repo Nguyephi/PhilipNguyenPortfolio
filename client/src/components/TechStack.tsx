@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => ({
         marginBottom: 3
     },
     snackButton: {
-        marginBottom: 103
+        marginBottom: 163
     }
 }))
 
