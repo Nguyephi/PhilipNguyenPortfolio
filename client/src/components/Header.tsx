@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import Typist from 'react-typist';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import Bio from './Bio.jsx'
+import { Bio } from './Bio'
 import '../css/header.css';
 import headerImage from '../img/Philip_Nguyen_Portfolio_Header.png';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   title: {
     flexGrow: 1,
     color: 'white'
   }
 }))
 
-export default function Header() {
-  const [show, setShow] = useState(false);
+export const Header: FunctionComponent = () => {
+  const [show, setShow] = useState<boolean>(false);
   const classes = useStyles();
 
   return (

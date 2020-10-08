@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 
 import Projects from '../data/projectData.json'
 import '../css/projectSection.css'
+import { Button } from '@material-ui/core';
 
 const useStyles = makeStyles({
     root: {
@@ -26,11 +27,11 @@ const useStyles = makeStyles({
     },
 });
 
-export default function ProjectSection() {
+export const ProjectSection: FunctionComponent = () => {
     const classes = useStyles();
-    const RenderProjects = () => {
-        let firstKeyCount = 0;
-        let secondKeyCount = 0;
+    const renderProjects: () => JSX.Element[] = () => {
+        let firstKeyCount: number = 0;
+        let secondKeyCount: number = 0;
         return Projects.repos.map(({ repo_title, job_title, repo_subtitle, repo_techStack, bullet_point, repo_link }) => {
             return (
                 <Card key={firstKeyCount++} className={classes.root}>
@@ -55,9 +56,9 @@ export default function ProjectSection() {
                         })}
                     </CardContent>
                     <CardActions>
-                        <Link size="Large" variant="body2" color="primary" href={repo_link} target="_blank" rel="noopener noreferrer">
+                        <Button size="large" href={repo_link} target="_blank" rel="noopener noreferrer">
                             REPO
-                        </Link>
+                        </Button>
                     </CardActions>
                 </Card>
             )
@@ -69,7 +70,7 @@ export default function ProjectSection() {
             <Typography id='project-title' variant="h3" component="h1">
                 Featured Applications
             </Typography>
-            <RenderProjects />
+            {renderProjects()}
         </div>
     )
 };

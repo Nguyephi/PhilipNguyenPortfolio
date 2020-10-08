@@ -12,7 +12,7 @@ interface Props {
     closeSnack: () => void;
 }
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     snackTitle: {
         marginBottom: 3
     },
@@ -25,7 +25,7 @@ export const TechStack: FunctionComponent<Props> = ({ openSnack, closeSnack }) =
     const classes = useStyles();
 
     const RenderTechStack = () => {
-        let keyCount = 0;
+        let keyCount: number = 0;
         return (
             <React.Fragment>
                 <h3 className={classes.snackTitle}>This application was created with</h3>
@@ -37,8 +37,9 @@ export const TechStack: FunctionComponent<Props> = ({ openSnack, closeSnack }) =
                             </Typography>
                         </div>
                     )
-                })}
-            </React.Fragment>
+                })
+                }
+            </React.Fragment >
         )
     }
 

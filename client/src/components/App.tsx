@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import { Navbar } from './Navbar';
-import Header from './Header.jsx';
-import ProjectSection from './ProjectSection.jsx';
+import { Header } from './Header';
+import { ProjectSection } from './ProjectSection';
 import ScrollToTop from './ScrollToTop.jsx';
 
-class App extends Component {
+class App extends React.Component {
   render() {
     return (
       <>

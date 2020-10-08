@@ -12,7 +12,7 @@ import Tooltip from '@material-ui/core/Tooltip';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-import ContactMeForm from './ContactMeForm.jsx';
+import { ContactMeForm } from './ContactMeForm';
 import { TechStack } from './TechStack';
 
 const useStyles = makeStyles((theme) => ({

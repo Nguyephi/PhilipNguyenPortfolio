@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import Typist from 'react-typist';
 import Typography from '@material-ui/core/Typography';
 
 import avatar from '../img/phils-avatar.jpg';
 import '../css/bio.css';
 
-export default function Bio({ show }) {
+interface Props {
+    show: boolean;
+}
+
+export const Bio: FunctionComponent<Props> = ({ show }) => {
     return (
         <div id='bio-root'>
             {show ?

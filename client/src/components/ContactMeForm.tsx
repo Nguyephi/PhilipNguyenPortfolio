@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import React, { ComponentType, FunctionComponent, useState } from 'react';
+import { createStyles, Theme, WithStyles, withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import FormControl from '@material-ui/core/FormControl';
@@ -13,7 +13,12 @@ import Typography from '@material-ui/core/Typography';
 
 import '../css/contactMeForm.css';
 
-const styles = (theme) => ({
+interface Props {
+  open: boolean;
+  handleClose: () => void;
+}
+
+const styles = (theme: Theme) => createStyles({
   root: {
     margin: 0,
     padding: theme.spacing(2),
@@ -26,7 +31,13 @@ const styles = (theme) => ({
   },
 });
 
-const DialogTitle = withStyles(styles)((props) => {
+interface DialogTitleProps extends WithStyles<typeof styles> {
+  id: string;
+  onClose: () => void;
+  children: string;
+}
+
+const DialogTitle = withStyles(styles)((props: DialogTitleProps) => {
   const { children, classes, onClose, ...other } = props;
   return (
     <MuiDialogTitle disableTypography className={classes.root} {...other}>
@@ -47,13 +58,13 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function ContactMeForm({ open, handleClose }) {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [title, setTitle] = useState('');
-  const [message, setMessage] = useState('');
+export const ContactMeForm: FunctionComponent<Props> = ({ open, handleClose }) => {
+  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+  const [title, setTitle] = useState<string>('');
+  const [message, setMessage] = useState<string>('');
 
-  const handleEmail = (e) => {
+  const handleEmail = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const requestOptions = {
       method: 'POST',

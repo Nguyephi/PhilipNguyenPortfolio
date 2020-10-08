@@ -16,5 +16,9 @@
         "noImplicitThis": true,
         "strictNullChecks": true,
         "resolveJsonModule": true,
+        "typeRoots": [
+            "./client/src/types",
+            "node_modules/@types"
+        ]
     }
 }
